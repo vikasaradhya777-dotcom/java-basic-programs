@@ -1,0 +1,45 @@
+package DAY8;
+
+import java.util.*;
+
+class employee {
+
+    String name;
+    String department;
+    int salary;
+
+    employee(String name, String department, int salary) {
+        this.name = name;
+        this.department = department;
+        this.salary = salary;
+    }
+
+    public String toString() {
+        return name + "-" + department + "-" + salary;
+    }
+}
+
+public class sort {
+
+    public static void main(String[] args) {
+
+        List<employee> employees = Arrays.asList(
+            new employee("ravi", "IT", 60000),
+            new employee("anil", "HR", 50000),
+            new employee("priya", "IT", 50000),
+            new employee("amith", "HR", 60000),
+            new employee("rahul", "IT", 50000)
+        );
+
+        employees.sort(
+            Comparator.comparing(
+                (employee e) -> e.salary,
+                Comparator.reverseOrder()
+            )
+        );
+
+        for (employee e : employees) {
+            System.out.println(e);
+        }
+    }
+}
